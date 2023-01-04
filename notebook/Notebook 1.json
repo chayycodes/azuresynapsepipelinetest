@@ -1,0 +1,72 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "srsparkpool",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "60130f42-cbd2-4807-b02b-e0587a4039ee"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/3ebc6c55-9012-4143-ac32-1321e8a5f19a/resourceGroups/chaysynapseResearchRg/providers/Microsoft.Synapse/workspaces/chaysynapseresearchworkspace/bigDataPools/srsparkpool",
+				"name": "srsparkpool",
+				"type": "Spark",
+				"endpoint": "https://chaysynapseresearchworkspace.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/srsparkpool",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.2",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					}
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://synapseresearchadlsfilesystem@chaysynapseresearchadls.dfs.core.windows.net/copyactivity-logs/Copy_y95/0a21d1fd-0382-439c-bec5-1470d32af155/e5833681-ed38-7b26-d072-984f10c42188_0.txt', format='text')\r\n",
+					"display(df.limit(5))"
+				],
+				"execution_count": 3
+			}
+		]
+	}
+}
