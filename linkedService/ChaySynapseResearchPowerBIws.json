@@ -1,0 +1,11 @@
+{
+	"name": "ChaySynapseResearchPowerBIws",
+	"properties": {
+		"annotations": [],
+		"type": "PowerBIWorkspace",
+		"typeProperties": {
+			"workspaceID": "75E33D7A-D37A-4704-9ACC-370AB3FC1F23",
+			"tenantID": "4eecddb4-292b-424e-9027-a1f74ce3ac62"
+		}
+	}
+}
